@@ -10,6 +10,8 @@ This project provides a comprehensive solution for:
 - Tracking ownership and transaction history
 - Organizing music collections for NFT minting
 
+**Experimental:** Dual-protocol support (Avalanche + NEAR) with "warpaint" artistic visual layer for non-linear creative NFTs. See [EXPERIMENTAL_NFT.md](EXPERIMENTAL_NFT.md).
+
 ## Project Structure
 
 ```
@@ -18,8 +20,13 @@ nnlr-music-nft-db/
 │   ├── schema.sql           # Database schema definition
 │   ├── database.py          # Database connection management
 │   └── avalanche_client.py  # Avalanche blockchain integration
+├── near-stack/              # Experimental NEAR (NEP-171) + warpaint
+│   ├── experimental-nft.js
+│   └── package.json
 ├── scripts/
 │   └── index_files.py       # File indexing script
+├── examples/
+│   └── experimental_nft_example.py
 ├── data/                    # Database storage directory
 ├── tests/                   # Test files
 └── docs/                    # Additional documentation
@@ -31,6 +38,7 @@ nnlr-music-nft-db/
 
 - Python 3.8 or higher
 - SQLite3
+- Node.js + near-api-js (for experimental NEAR)
 
 ### Installation
 
@@ -43,6 +51,7 @@ cd nnlr-music-nft-db
 2. Install dependencies:
 ```bash
 pip install -r requirements.txt
+cd near-stack && npm install
 ```
 
 3. Initialize the database:
@@ -94,6 +103,19 @@ from src.avalanche_client import get_avalanche_client
 
 client = get_avalanche_client(network="mainnet")
 # Use client methods for blockchain operations
+```
+
+## Experimental NEAR + Warpaint
+
+See EXPERIMENTAL_NFT.md for NEAR NEP-171 module and "warpaint" (non-linear artistic visual overlays for music NFTs, tying to blockcode/generative visuals).
+
+Example:
+```bash
+cd near-stack
+node -e '
+  const { getExperimentalNearNFT } = require("./experimental-nft");
+  // init and mintWithWarpaint etc.
+'
 ```
 
 ## Development
