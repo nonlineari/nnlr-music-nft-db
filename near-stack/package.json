@@ -1,0 +1,13 @@
+{
+  "name": "nnlr-near-experimental-nft",
+  "version": "0.1.0-experimental",
+  "description": "Experimental NEAR NFT module (NEP-171) with warpaint artistic layer for music NFTs.",
+  "main": "experimental-nft.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "near-api-js": "^2.1.0"
+  },
+  "license": "MIT OR GPL-3.0-or-later"
+}
